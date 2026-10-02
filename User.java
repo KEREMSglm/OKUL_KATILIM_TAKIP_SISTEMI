@@ -8,7 +8,7 @@
 public class User
 {
     // instance variables - replace the example below with your own
-    
+    private String v_isim;
 
     
     public User()
