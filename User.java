@@ -7,8 +7,12 @@
  */
 public class User
 {
-    // instance variables - replace the example below with your own
+    // instance variables 
+    private int v_id;
     private String v_isim;
+    private int tel;
+    
+     
 
     
     public User()
