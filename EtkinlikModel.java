@@ -8,9 +8,12 @@ public class EtkinlikModel
     private int v_etkinlik_tarihi;
     private Tarih trh1;
     
-    public EtkinlikModel()
+    public EtkinlikModel(int p_etkinlik_id,String p_etkinlik_isim,int p_etkinlik_tarihi)
     {
         // initialise instance variables
+        v_etkinlik_id = p_etkinlik_id;
+        v_etkinlik_isim = p_etkinlik_isim;
+        v_etkinlik_tarihi = p_etkinlik_tarihi;
        
     }
     

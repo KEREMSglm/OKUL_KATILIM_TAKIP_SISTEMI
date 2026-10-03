@@ -10,6 +10,12 @@ public class OgrenciView
         
     }
 
+    public void ogrenciEkle(int p_id,String p_isim,int p_tel){
+        ogrM1 = new OgrenciModel(p_id,p_isim,p_tel);
+    }
     
+    public void ogrenciSil(int p_id,String p_isim,int tel){ 
+    
+    }    
     
 }
