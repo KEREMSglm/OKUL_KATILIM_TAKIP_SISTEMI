@@ -5,18 +5,18 @@
  * @author (Kerem)
  * @version (v0.1)
  */
-public class Ogrenci
+public class OgrenciModel
 {
     // instance variables 
     private int v_id;
     private String v_isim;
     private int tel;
-    private Etkinlik etk1;
+    private EtkinlikModel etkM1;
     
      
 
     
-    public Ogrenci()
+    public OgrenciModel()
     {
         // initialise instance variables
         

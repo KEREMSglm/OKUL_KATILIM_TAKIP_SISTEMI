@@ -3,8 +3,8 @@
 public class Yonetici
 {
     // instance variables 
-    private Ogrenci ogr1;
-    private Etkinlik etk1;
+    private OgrenciView ogr1;
+    private EtkinlikView etk1;
     
     public Yonetici()
     {

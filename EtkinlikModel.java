@@ -1,6 +1,6 @@
 
 
-public class Etkinlik
+public class EtkinlikModel
 {
     // instance variables - replace the example below with your own
     private int v_etkinlik_id;
@@ -8,7 +8,7 @@ public class Etkinlik
     private int v_etkinlik_tarihi;
     private Tarih trh1;
     
-    public Etkinlik()
+    public EtkinlikModel()
     {
         // initialise instance variables
        
