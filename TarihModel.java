@@ -1,19 +1,19 @@
 
 /**
- * Write a description of class EtkinlikView here.
+ * Write a description of class TarihModel here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class EtkinlikView
+public class TarihModel
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class EtkinlikView
+     * Constructor for objects of class TarihModel
      */
-    public EtkinlikView()
+    public TarihModel()
     {
         // initialise instance variables
         x = 0;

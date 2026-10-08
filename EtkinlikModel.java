@@ -1,45 +1,46 @@
 
-
+/**
+ * Write a description of class EtkinlikModel here.
+ *
+ * @author (Kerem SAGLAM)
+ * @version (V0.1)
+ */
 public class EtkinlikModel
 {
-    // instance variables - replace the example below with your own
-    private int v_etkinlik_id;
-    private String v_etkinlik_isim;
-    private int v_etkinlik_tarihi;
-    private Tarih trh1;
     
-    public EtkinlikModel(int p_etkinlik_id,String p_etkinlik_isim,int p_etkinlik_tarihi)
+    private int v_id;
+    private String v_etkinlikName;
+    private int v_tarih;
+    
+    public EtkinlikModel(int p_id,String p_etkinlikName,int p_tarih)
     {
-        // initialise instance variables
-        v_etkinlik_id = p_etkinlik_id;
-        v_etkinlik_isim = p_etkinlik_isim;
-        v_etkinlik_tarihi = p_etkinlik_tarihi;
-       
+      v_id = p_id;
+      v_etkinlikName = p_etkinlikName;
+      v_tarih = p_tarih;
+    }
+    //getter method
+    public int getId(){
+        return v_id;
     }
     
-    //getter methods
-    public String getEtkinlikIsim(){
-        return v_etkinlik_isim;
+    public String getName(){
+        return v_etkinlikName;
     }
     
-    public int getEtkinlikID(){
-        return v_etkinlik_id;
+    public int getTarih(){
+        return v_tarih;
     }
-        
-    public int getEtkinlikTarihi(){
-        return trh1.getTarih();
-    }
-    //setter methods
-    public void setEtkinlikIsim(String p_etkinlik_isim){
-         v_etkinlik_isim = p_etkinlik_isim ;
+    //setter method
+    public void setId(int p_id){
+        v_id = p_id;
     }
     
-    public void setEtkinlikID(int p_etkinlik_id){
-         v_etkinlik_id = p_etkinlik_id;
+    public void setName(String p_etkinlikName){
+        v_etkinlikName = p_etkinlikName;
     }
-        
-    public void setEtkinlikTarihi(){
-         v_etkinlik_tarihi = trh1.getTarih();
+    
+    public void setTarih(int p_tarih){
+        v_tarih = p_tarih;
     }
     
     

@@ -1,19 +1,19 @@
 
 /**
- * Write a description of class EtkinlikView here.
+ * Write a description of class EtkinlikController here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class EtkinlikView
+public class EtkinlikController
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class EtkinlikView
+     * Constructor for objects of class EtkinlikController
      */
-    public EtkinlikView()
+    public EtkinlikController()
     {
         // initialise instance variables
         x = 0;
