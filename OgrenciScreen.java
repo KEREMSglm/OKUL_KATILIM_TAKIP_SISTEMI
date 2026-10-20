@@ -1,19 +1,19 @@
 
 /**
- * Write a description of class TarihView here.
+ * Write a description of class OgrenciScreen here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class TarihView
+public class OgrenciScreen
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class TarihView
+     * Constructor for objects of class OgrenciScreen
      */
-    public TarihView()
+    public OgrenciScreen()
     {
         // initialise instance variables
         x = 0;

@@ -1,19 +1,19 @@
 
 /**
- * Write a description of class TarihModel here.
+ * Write a description of class YoneticiScreen here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class TarihModel
+public class YoneticiScreen
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class TarihModel
+     * Constructor for objects of class YoneticiScreen
      */
-    public TarihModel()
+    public YoneticiScreen()
     {
         // initialise instance variables
         x = 0;

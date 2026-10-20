@@ -1,33 +1,71 @@
 
+import java.util.ArrayList;
+
 /**
- * Write a description of class EtkinlikController here.
+ * Etkinlik modelinin ekleme, guncelleme, silme ve okuma
+ * islemlerini yoneten controller sinifi.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Kerem SAGLAM)
+ * @version (V0.1)
  */
 public class EtkinlikController
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private EtkinlikModel v_etkinlikModel;
 
-    /**
-     * Constructor for objects of class EtkinlikController
-     */
-    public EtkinlikController()
+    public EtkinlikController(EtkinlikModel p_etkinlikModel)
     {
-        // initialise instance variables
-        x = 0;
+        v_etkinlikModel = p_etkinlikModel;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    public void etkinlikCreate(EtkinlikModel p_etkinlikModel)
     {
-        // put your code here
-        return x + y;
+        v_etkinlikModel = p_etkinlikModel;
+    }
+
+    public void etkinlikUpdate(int p_id, String p_etkinlikName, int p_tarih)
+    {
+        if (v_etkinlikModel != null)
+        {
+            v_etkinlikModel.setId(p_id);
+            v_etkinlikModel.setName(p_etkinlikName);
+            v_etkinlikModel.setTarih(p_tarih);
+        }
+    }
+
+    public void etkinlikDelete()
+    {
+        v_etkinlikModel = null;
+    }
+
+    public void katilimciAdd(UserModel p_userModel)
+    {
+        if (v_etkinlikModel != null && p_userModel != null)
+        {
+            ArrayList<UserModel> katilimcilar =
+                v_etkinlikModel.getKatilimcilar();
+
+            if (!katilimcilar.contains(p_userModel))
+            {
+                katilimcilar.add(p_userModel);
+                v_etkinlikModel.setKatilimcilar(katilimcilar);
+            }
+        }
+    }
+
+    public void katilimciDelete(UserModel p_userModel)
+    {
+        if (v_etkinlikModel != null && p_userModel != null)
+        {
+            ArrayList<UserModel> katilimcilar =
+                v_etkinlikModel.getKatilimcilar();
+
+            katilimcilar.remove(p_userModel);
+            v_etkinlikModel.setKatilimcilar(katilimcilar);
+        }
+    }
+
+    public EtkinlikModel getEtkinlikModel()
+    {
+        return v_etkinlikModel;
     }
 }

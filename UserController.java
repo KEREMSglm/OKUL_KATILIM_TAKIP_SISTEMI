@@ -11,41 +11,89 @@ public class UserController
 
     public UserController(UserModel p_userModel)
     {
+        /**
+         * burada hangi kullanıcı kontollerı kullanıyor içine yazılacak
+         * gennelliklede yönetici izni olanlar gözükçek yönetiçi izni
+         * olan user ayrıldığında kendini silebilecek böyleliklede kendi şirket
+         * kaydını silebilecek 
+         */
         v_userModel = p_userModel;
     }
 
-    public void userAdd(UserModel p_userModel)
+    public boolean userAdd(UserModel p_userModel)
     {
+        /**
+         * burada önceden yada çağrı içinde oluşturulan bir user model nesnesi 
+         * oluşturuluyor sonra oluşturulan nesne ile id foreach kullanılarak
+         * karşılaştırılıyor .Eğer oluşturulan nesne UserListesinde yoksa 
+         * userlistesine ekliyor
+         */
+        if (p_userModel == null)
+        {
+            return false;
+        }
+
+        for (UserModel user : UserList.users)
+        {
+            if (user.getId() == p_userModel.getId())
+            {
+                return false;
+            }
+        }
+
+        UserList.users.add(p_userModel);
         v_userModel = p_userModel;
+
+        return true;
     }
 
-    public void userDelete()
+    public boolean userDelete(String p_userIsim)
     {
-        v_userModel = null;
-    }
-
-    public void userAddEtkinlik(EtkinlikModel p_etkinlik)
-    {
-        if (v_userModel != null && p_etkinlik != null)
+        /**
+         * eğer belirtilen isimde nesne varsa o nesneyi siliyor 
+         */
+        for (UserModel user : UserList.users)
         {
-            ArrayList<EtkinlikModel> etkinlikler =
-                v_userModel.getEtkinlikler();
+            if (p_userIsim.equals(user.getName()))
+            {
+                UserList.users.remove(user);
 
-            etkinlikler.add(p_etkinlik);
-            v_userModel.setEtkinlikler(etkinlikler);
+                if (v_userModel == user)
+                {
+                    v_userModel = null;
+                }
+
+                return true;
+            }
         }
+
+        return false;
     }
 
-    public void userDeleteEtkinlik(EtkinlikModel p_etkinlik)
+    
+    public boolean userAddEtkinlikISIM(String userIsim,String etkinlikIsmi,int p_tarih)
     {
-        if (v_userModel != null && p_etkinlik != null)
+        for (UserModel user : UserList.users)
         {
-            ArrayList<EtkinlikModel> etkinlikler =
-                v_userModel.getEtkinlikler();
-
-            etkinlikler.remove(p_etkinlik);
-            v_userModel.setEtkinlikler(etkinlikler);
+            if (userIsim.equals(user.getName()))
+            {
+                for (EtkinlikModel etkinlik : EtkinlikList.etkinlik)
+                {
+                    if (etkinlikIsmi.equals(etkinlik.getName()) &&
+                        etkinlik.getTarih() == p_tarih)
+                    {
+                         user.setEtkinlikler(etkinlikIsmi,p_tarih);
+                         return true;
+                    }
+                }
+    
+                // Öğrenci bulundu, etkinlik bulunamadı.
+                return false;
+            }
         }
+    
+        // Öğrenci bulunamadı.
+        return false;
     }
 
     public UserModel getUserModel()

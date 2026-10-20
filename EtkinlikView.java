@@ -1,33 +1,89 @@
 
+import java.util.ArrayList;
+
 /**
- * Write a description of class EtkinlikView here.
+ * Etkinlik bilgilerini ve katilimcilarini ekranda gosteren view sinifi.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Kerem SAGLAM)
+ * @version (V0.1)
  */
 public class EtkinlikView
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private EtkinlikModel v_etkinlikModel;
 
-    /**
-     * Constructor for objects of class EtkinlikView
-     */
-    public EtkinlikView()
+    public EtkinlikView(EtkinlikModel p_etkinlikModel)
     {
-        // initialise instance variables
-        x = 0;
+        v_etkinlikModel = p_etkinlikModel;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    public void etkinlikBilgileriniGoster()
     {
-        // put your code here
-        return x + y;
+        if (v_etkinlikModel == null)
+        {
+            System.out.println("Gosterilecek etkinlik bulunamadi.");
+            return;
+        }
+
+        System.out.println("Etkinlik ID: " + v_etkinlikModel.getId());
+        System.out.println("Etkinlik adi: " + v_etkinlikModel.getName());
+        System.out.println("Etkinlik tarihi: " + v_etkinlikModel.getTarih());
+        System.out.println(
+            "Katilimci sayisi: " +
+            v_etkinlikModel.getKatilimcilar().size()
+        );
+    }
+
+    public void katilimcilariGoster()
+    {
+        if (v_etkinlikModel == null)
+        {
+            System.out.println("Gosterilecek etkinlik bulunamadi.");
+            return;
+        }
+
+        ArrayList<UserModel> katilimcilar =
+            v_etkinlikModel.getKatilimcilar();
+
+        System.out.println(
+            v_etkinlikModel.getName() + " etkinliginin katilimcilari:"
+        );
+
+        if (katilimcilar.isEmpty())
+        {
+            System.out.println("Bu etkinlige henuz katilimci eklenmedi.");
+            return;
+        }
+
+        for (UserModel katilimci : katilimcilar)
+        {
+            System.out.println(
+                katilimci.getId() + " - " + katilimci.getName()
+            );
+        }
+    }
+
+    public void etkinliklerinTumunuGoster(
+        ArrayList<EtkinlikModel> p_etkinlikler)
+    {
+        if (p_etkinlikler == null)
+        {
+            System.out.println("Gosterilecek etkinlik bulunamadi.");
+            return;
+        }
+
+        System.out.println("Tum etkinlikler:");
+
+        for (EtkinlikModel etkinlik : p_etkinlikler)
+        {
+            if (etkinlik != null)
+            {
+                System.out.println(
+                    etkinlik.getId() + " - " +
+                    etkinlik.getName() + " - Tarih: " +
+                    etkinlik.getTarih() + " - Katilimci sayisi: " +
+                    etkinlik.getKatilimcilar().size()
+                );
+            }
+        }
     }
 }
