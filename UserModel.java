@@ -1,5 +1,10 @@
 import java.util.ArrayList;
-
+/**
+ * Write a description of class UserView here.
+ *
+ * @author (Kerem SAGLAM)
+ * @version (V0.1)
+ */
 public class UserModel
 {
     private int v_id;
@@ -93,29 +98,36 @@ public class UserModel
         v_isPersonal=p;
     }
     
+    public static UserModel getUser(String userIsim, int p_userID)
+    {
+        for (UserModel user : UserList.users) {
+            if (p_userID == user.getId() &&
+                userIsim.equals(user.getName())) {
+                return user;
+            }
+        }
+        return null;
+    }
+    
     public void setAttend(boolean p)
     {
         v_isAttendEtk=p;
     }
 
-    public void setEtkinlikler(String p_etkinlik_ismi,int p_tarih)
+    public void setEtkinlikler(String p_etkinlik_ismi, int p_tarih)
     {
-        /**
-         * burada her bir kullanıcının elinde bulundurduğu gireceği etkinlik listesi
-         * ile mevcut olan etkinlikleri karşılaştırıp etkinlik eklenmişse zaten
-         * ekleme yapmayacak ama eklenmemiş etkinlik bilgileri seçilmişse ekleme
-         * yapacak
-             
-           */
-        for(EtkinlikModel etk : EtkinlikList.etkinlik){
-            if(p_etkinlik_ismi.equals(etk.getName()) && etk.getTarih() == p_tarih){
-                return ;
+        for (EtkinlikModel etk : EtkinlikList.etkinlik)
+        {
+            if (p_etkinlik_ismi.equals(etk.getName())
+                && etk.getTarih() == p_tarih)
+            {
+                if (!_etkinlikModel.contains(etk)) {
+                    _etkinlikModel.add(etk);
+                }
+    
+                return;
             }
-            
         }
-        
-        EtkinlikModel etkinlik = new EtkinlikModel(_etkinlikModel.size()+1,p_etkinlik_ismi,p_tarih);
-        _etkinlikModel.add(etkinlik);
     }
     
     

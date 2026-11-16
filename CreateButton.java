@@ -27,6 +27,7 @@ public class CreateButton extends JButton
     
     {
         super(p_word);
+            
         buttonID = p_buttonID;
         button_height = p_button_height;
         button_width = p_button_width;
@@ -35,8 +36,16 @@ public class CreateButton extends JButton
         word = p_word;
         setSize(button_width,button_height);
         setLocation(pos_x,pos_y);
+        java.awt.Dimension buttonSize = new java.awt.Dimension(button_width, button_height);
+    
+        setMinimumSize(buttonSize);
+        setPreferredSize(buttonSize);
+        setMaximumSize(buttonSize);
+
+
+        // Yatay olarak ortala
+        setAlignmentX(0.5f);
         addActionListener(clickEvent);
-        
     }
     
     

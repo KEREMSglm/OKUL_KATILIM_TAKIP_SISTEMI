@@ -1,4 +1,10 @@
 import java.util.ArrayList;
+/**
+ * Write a description of class UserView here.
+ *
+ * @author (Kerem SAGLAM)
+ * @version (V0.1)
+ */
 public class EtkinlikModel
 {
     private int v_id;

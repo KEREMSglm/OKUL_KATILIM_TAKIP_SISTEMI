@@ -1,12 +1,7 @@
 import java.util.ArrayList;
+
 public class UserList
 {
-    public static ArrayList<UserModel> users;
-    
-    public UserList()
-    {
-        users = new ArrayList<UserModel>();
-    }
-
-    
+    public static final ArrayList<UserModel> users =
+        new ArrayList<UserModel>();
 }

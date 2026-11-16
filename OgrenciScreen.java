@@ -1,9 +1,9 @@
-//aaaaaaaaaaaaaa
+
 /**
- * Write a description of class OgrenciScreen here.
+ * Write a description of class UserView here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Kerem SAGLAM)
+ * @version (V0.1)
  */
 public class OgrenciScreen
 {

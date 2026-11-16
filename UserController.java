@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class UserController
 {
     private UserModel v_userModel;
-
+    
     public UserController(UserModel p_userModel)
     {
         /**
@@ -69,7 +69,6 @@ public class UserController
 
         return false;
     }
-
     
     public boolean userAddEtkinlikISIM(String userIsim,String etkinlikIsmi,int p_tarih)
     {
@@ -111,6 +110,22 @@ public class UserController
         return false;   
     }
     
+    
+    
+    public int userFindForSetup(String userIsim,int p_userID){
+        for (UserModel user : UserList.users){
+            if(p_userID == user.getId() && userIsim.equals(user.getName()) && user.getStudent() == true){
+                return 1;
+            }
+            else if(p_userID == user.getId() && userIsim.equals(user.getName()) && user.getPersonal() == true){
+                return 2;
+            }
+            else if(p_userID == user.getId() && userIsim.equals(user.getName()) && user.getAttend() == true){
+                return 3;
+            }
+        }
+        return 0;
+    }
     
     public UserModel getUserModel()
     {
