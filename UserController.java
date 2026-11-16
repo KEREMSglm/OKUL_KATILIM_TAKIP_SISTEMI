@@ -95,7 +95,23 @@ public class UserController
         // Öğrenci bulunamadı.
         return false;
     }
-
+    
+    public boolean userAddEtkinlikISIM(int p_userID,String etkinlikIsmi,int p_tarih){
+        for (UserModel user : UserList.users){
+            if(p_userID == user.getId()){
+                for(EtkinlikModel etk : EtkinlikList.etkinlik){
+                    if(etkinlikIsmi.equals(etk.getName()) &&  p_tarih == etk.getTarih() ){
+                        user.setEtkinlikler(etkinlikIsmi,p_tarih);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        return false;   
+    }
+    
+    
     public UserModel getUserModel()
     {
         return v_userModel;
